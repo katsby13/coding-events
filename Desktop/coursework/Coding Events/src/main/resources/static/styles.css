@@ -1,4 +1,12 @@
+.content {
+    margin: auto;
+    width: 85%;
+}
+
 body {
-    font-size: 20px;
-    color: lavender;
+    background-color: #bc42f5;
+    color: #78597d;
+}
+
+
 }
