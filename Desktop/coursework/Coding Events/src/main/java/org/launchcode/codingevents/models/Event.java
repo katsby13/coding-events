@@ -16,11 +16,11 @@ public class Event {
         nextId++;
     }
 
-    public Event(String name) {
-        this.name = name;
-        this.id = nextId;
-        nextId++;
-    }
+//    public Event(String name) {
+//        this.name = name;
+//        this.id = nextId;
+//        nextId++;
+//    }
 
     public String getName() {
         return name;
