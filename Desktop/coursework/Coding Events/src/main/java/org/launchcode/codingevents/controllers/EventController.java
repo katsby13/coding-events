@@ -16,7 +16,6 @@ import java.util.List;
 @RequestMapping("events")
 public class EventController {
 
-//    private static List<String> events = new ArrayList<>();
     private static List<Event> events = new ArrayList<>();
 
     @GetMapping
@@ -32,8 +31,9 @@ public class EventController {
     }
 
     @PostMapping("create")
-    public String createEvent(@RequestParam String eventName, String description) {
-        events.add(new Event(eventName));
+    public String createEvent(@RequestParam String eventName, @RequestParam String eventDescription) {
+        events.add(new Event(eventName, eventDescription));
         return "redirect:";
     }
+
 }
