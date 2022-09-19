@@ -1,5 +1,6 @@
 package org.launchcode.codingevents.controllers;
 
+import org.launchcode.codingevents.models.Event;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,14 +17,12 @@ import java.util.List;
 public class EventController {
 
 //    private static List<String> events = new ArrayList<>();
-    private static HashMap<String, String> eventList = new HashMap<>();
+    private static List<Event> events = new ArrayList<>();
 
     @GetMapping
     public String displayAllEvents(Model model) {
-        eventList.put("Spooky Code", "Halloween themed coding.");
-        eventList.put("Code and Paint", "Code and then paint later...? idk...");
-        eventList.put("Around Town Code", "A coding event near you.");
-        model.addAttribute("events", eventList);
+        model.addAttribute("title", "All Events");
+        model.addAttribute("events", events);
         return "events/index";
     }
 
@@ -34,7 +33,7 @@ public class EventController {
 
     @PostMapping("create")
     public String createEvent(@RequestParam String eventName, String description) {
-        eventList.put(eventName, description);
+        events.add(new Event(eventName));
         return "redirect:";
     }
 }
